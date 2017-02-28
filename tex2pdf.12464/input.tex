@@ -1,0 +1,218 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{}
+  \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\begin{document}
+
+\section{TITLE by YOUR\_NAME\_HERE}\label{title-by-yourux5fnameux5fhere}
+
+\section{Univariate Plots Section}\label{univariate-plots-section}
+
+\begin{verbatim}
+## [1] 4898
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{verbatim}
+## 'data.frame':    4898 obs. of  12 variables:
+##  $ fixed.acidity       : num  7 6.3 8.1 7.2 7.2 8.1 6.2 7 6.3 8.1 ...
+##  $ volatile.acidity    : num  0.27 0.3 0.28 0.23 0.23 0.28 0.32 0.27 0.3 0.22 ...
+##  $ citric.acid         : num  0.36 0.34 0.4 0.32 0.32 0.4 0.16 0.36 0.34 0.43 ...
+##  $ residual.sugar      : num  20.7 1.6 6.9 8.5 8.5 6.9 7 20.7 1.6 1.5 ...
+##  $ chlorides           : num  0.045 0.049 0.05 0.058 0.058 0.05 0.045 0.045 0.049 0.044 ...
+##  $ free.sulfur.dioxide : num  45 14 30 47 47 30 30 45 14 28 ...
+##  $ total.sulfur.dioxide: num  170 132 97 186 186 97 136 170 132 129 ...
+##  $ density             : num  1.001 0.994 0.995 0.996 0.996 ...
+##  $ pH                  : num  3 3.3 3.26 3.19 3.19 3.26 3.18 3 3.3 3.22 ...
+##  $ sulphates           : num  0.45 0.49 0.44 0.4 0.4 0.44 0.47 0.45 0.49 0.45 ...
+##  $ alcohol             : num  8.8 9.5 10.1 9.9 9.9 10.1 9.6 8.8 9.5 11 ...
+##  $ quality             : int  6 6 6 6 6 6 6 6 6 6 ...
+\end{verbatim}
+
+\begin{verbatim}
+##  fixed.acidity    volatile.acidity  citric.acid     residual.sugar  
+##  Min.   : 3.800   Min.   :0.0800   Min.   :0.0000   Min.   : 0.600  
+##  1st Qu.: 6.300   1st Qu.:0.2100   1st Qu.:0.2700   1st Qu.: 1.700  
+##  Median : 6.800   Median :0.2600   Median :0.3200   Median : 5.200  
+##  Mean   : 6.855   Mean   :0.2782   Mean   :0.3342   Mean   : 6.391  
+##  3rd Qu.: 7.300   3rd Qu.:0.3200   3rd Qu.:0.3900   3rd Qu.: 9.900  
+##  Max.   :14.200   Max.   :1.1000   Max.   :1.6600   Max.   :65.800  
+##    chlorides       free.sulfur.dioxide total.sulfur.dioxide
+##  Min.   :0.00900   Min.   :  2.00      Min.   :  9.0       
+##  1st Qu.:0.03600   1st Qu.: 23.00      1st Qu.:108.0       
+##  Median :0.04300   Median : 34.00      Median :134.0       
+##  Mean   :0.04577   Mean   : 35.31      Mean   :138.4       
+##  3rd Qu.:0.05000   3rd Qu.: 46.00      3rd Qu.:167.0       
+##  Max.   :0.34600   Max.   :289.00      Max.   :440.0       
+##     density             pH          sulphates         alcohol     
+##  Min.   :0.9871   Min.   :2.720   Min.   :0.2200   Min.   : 8.00  
+##  1st Qu.:0.9917   1st Qu.:3.090   1st Qu.:0.4100   1st Qu.: 9.50  
+##  Median :0.9937   Median :3.180   Median :0.4700   Median :10.40  
+##  Mean   :0.9940   Mean   :3.188   Mean   :0.4898   Mean   :10.51  
+##  3rd Qu.:0.9961   3rd Qu.:3.280   3rd Qu.:0.5500   3rd Qu.:11.40  
+##  Max.   :1.0390   Max.   :3.820   Max.   :1.0800   Max.   :14.20  
+##     quality     
+##  Min.   :3.000  
+##  1st Qu.:5.000  
+##  Median :6.000  
+##  Mean   :5.878  
+##  3rd Qu.:6.000  
+##  Max.   :9.000
+\end{verbatim}
+
+\section{Univariate Analysis}\label{univariate-analysis}
+
+\subsubsection{What is the structure of your
+dataset?}\label{what-is-the-structure-of-your-dataset}
+
+\subsubsection{What is/are the main feature(s) of interest in your
+dataset?}\label{what-isare-the-main-features-of-interest-in-your-dataset}
+
+\subsubsection{What other features in the dataset do you think will help
+support your investigation into your feature(s) of
+interest?}\label{what-other-features-in-the-dataset-do-you-think-will-help-support-your-investigation-into-your-features-of-interest}
+
+\subsubsection{Did you create any new variables from existing variables
+in the
+dataset?}\label{did-you-create-any-new-variables-from-existing-variables-in-the-dataset}
+
+\subsubsection{Of the features you investigated, were there any unusual
+distributions? Did you perform any operations on the data to tidy,
+adjust, or change the form of the data? If so, why did you do
+this?}\label{of-the-features-you-investigated-were-there-any-unusual-distributions-did-you-perform-any-operations-on-the-data-to-tidy-adjust-or-change-the-form-of-the-data-if-so-why-did-you-do-this}
+
+\section{Bivariate Plots Section}\label{bivariate-plots-section}
+
+\section{Bivariate Analysis}\label{bivariate-analysis}
+
+\subsubsection{Talk about some of the relationships you observed in this
+part of the investigation. How did the feature(s) of interest vary with
+other features in the
+dataset?}\label{talk-about-some-of-the-relationships-you-observed-in-this-part-of-the-investigation.-how-did-the-features-of-interest-vary-with-other-features-in-the-dataset}
+
+\subsubsection{Did you observe any interesting relationships between the
+other features (not the main feature(s) of
+interest)?}\label{did-you-observe-any-interesting-relationships-between-the-other-features-not-the-main-features-of-interest}
+
+\subsubsection{What was the strongest relationship you
+found?}\label{what-was-the-strongest-relationship-you-found}
+
+\section{Multivariate Plots Section}\label{multivariate-plots-section}
+
+\section{Multivariate Analysis}\label{multivariate-analysis}
+
+\subsubsection{Talk about some of the relationships you observed in this
+part of the investigation. Were there features that strengthened each
+other in terms of looking at your feature(s) of
+interest?}\label{talk-about-some-of-the-relationships-you-observed-in-this-part-of-the-investigation.-were-there-features-that-strengthened-each-other-in-terms-of-looking-at-your-features-of-interest}
+
+\subsubsection{Were there any interesting or surprising interactions
+between
+features?}\label{were-there-any-interesting-or-surprising-interactions-between-features}
+
+\subsubsection{OPTIONAL: Did you create any models with your dataset?
+Discuss the strengths and limitations of your
+model.}\label{optional-did-you-create-any-models-with-your-dataset-discuss-the-strengths-and-limitations-of-your-model.}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Final Plots and Summary}\label{final-plots-and-summary}
+
+\subsubsection{Plot One}\label{plot-one}
+
+\subsubsection{Description One}\label{description-one}
+
+\subsubsection{Plot Two}\label{plot-two}
+
+\subsubsection{Description Two}\label{description-two}
+
+\subsubsection{Plot Three}\label{plot-three}
+
+\subsubsection{Description Three}\label{description-three}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Reflection}\label{reflection}
+
+\end{document}
